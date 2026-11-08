@@ -96,3 +96,6 @@ body {
 .btn-edit:hover {
   background-color: #12305c;
 }
+footer {
+  background-color: var(--back-ground-header);
+}
