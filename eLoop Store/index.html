@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar sticky-top" style="border-bottom: 3px solid #e11d2e">
+      <div
+        class="container-navbar container-fluid d-flex flex-column align-items-stretch m-auto"
+      >
+        <div class="d-flex justify-content-between">
+          <div class="">
+            <a class="navbar-brand" href="#"
+              ><span class="text-danger fw-bold"
+                ><i
+                  class="fa-solid fa-rotate"
+                  style="color: rgb(226, 11, 11)"
+                ></i>
+                <span class="text-white fw-bold"> e</span>Loop</span
+              ></a
+            >
+          </div>
+          <div class="">
+            <button
+              type="button"
+              class="btn btn-danger rounded-2"
+              style="background-color: #e11d2e"
+            >
+              <i
+                class="fa-solid fa-table-cells-large"
+                style="color: rgb(255, 255, 255)"
+              ></i>
+              products
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="back-header position-relative overflow-hidden">
+      <div class="container">
+        <div class="col-12">
+          <div class="circle-left"></div>
+          <div class="text-center p-3">
+            <h1 class="text-white fw-bold font-h1">
+              e<span class="text-danger">Loop</span> Store Management
+            </h1>
+            <p class="text-secondary fs-5">
+              Add, search, update and organize your eLoop products in one place.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="circle-right"></div>
+    </header>
+    <main class="p-4 container-navbar">
+      <!--section-one-->
+      <section class="section-one">
+        <div class="container-navbar">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div
+                class="d-flex bg-white p-3 gap-4 align-items-center rounded-4 border-4 border-start border-danger"
+              >
+                <div class="icon-section-one">
+                  <i
+                    class="fa-solid fa-box-open"
+                    style="color: rgb(193, 38, 38)"
+                  ></i>
+                </div>
+                <div class="fw-bold">
+                  <p class="m-0 text-secondary">Total Products</p>
+                  <span id="totalProducts" class="fs-4">0</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <div
+                class="d-flex bg-white p-3 gap-4 align-items-center rounded-4 border-4 border-start border-dark"
+              >
+                <div class="icon-section-one icon-two">
+                  <i
+                    class="fa-regular fa-pen-to-square"
+                    style="color: #0b1f3a"
+                  ></i>
+                </div>
+                <div class="fw-bold pb-3">
+                  <p class="m-0 text-secondary">Mode</p>
+                  <span class="">Adding new product</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section-two -->
+      <section class="mb-5">
+        <div class="container-navbar">
+          <div class="mt-4 p-4 bg-white rounded-4">
+            <div class="d-flex gap-2 align-items-center">
+              <span class="fa-stack text-danger" style="font-size: 12px">
+                <i class="fa-regular fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-plus fa-stack-1x"></i>
+              </span>
+              <h2 class="fs-4">Product Details</h2>
+            </div>
+            <div class="">
+              <p class="text-secondary">
+                Fill in the information below to add or update a product.
+              </p>
+            </div>
+
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <div class="">
+                  <label for="" class="fw-bold">Product Name</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1"
+                      ><i
+                        class="fa-solid fa-tag"
+                        style="color: rgb(221, 224, 229)"
+                      ></i
+                    ></span>
+                    <input
+                      oninput="validateName()"
+                      type="text"
+                      id="ProductName"
+                      class="form-control"
+                      placeholder="e.g. iPhone 15"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <div id="invalidAlert"></div>
+                </div>
+              </div>
+              <div class="col-12 col-md-6">
+                <div class="">
+                  <label for="" class="fw-bold">Product Price</label>
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon2">$</span>
+                    <input
+                      type="text"
+                      oninput="validatePrice()"
+                      id="productPrice"
+                      class="form-control"
+                      placeholder="e.g. 999"
+                      aria-label="Username"
+                      aria-describedby="basic-addon1"
+                    />
+                  </div>
+                  <div id="invalidAlertPrice"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="">
+                <label for="" class="fw-bold">Product Category</label>
+                <div class="input-group">
+                  <span class="input-group-text" id="basic-addon3"
+                    ><i
+                      class="fa-solid fa-layer-group fa-flip-vertical"
+                      style="color: rgb(221, 224, 229)"
+                    ></i
+                  ></span>
+                  <input
+                    oninput="validateCategory()"
+                    type="text"
+                    id="Category"
+                    class="form-control"
+                    placeholder="e.g. Mobiles"
+                    aria-label="Username"
+                    aria-describedby="basic-addon1"
+                  />
+                </div>
+                <div id="invalidAlertCategory"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="">
+                <label for="" class="fw-bold">Product Description</label>
+                <div class="input-group">
+                  <textarea
+                    oninput="validateDescription()"
+                    name=""
+                    id="Description"
+                    class="form-control"
+                    placeholder="Write a short description..."
+                  ></textarea>
+                </div>
+                <div id="invalidAlertDescription"></div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="">
+                <label for="" class="fw-bold">Product Image</label>
+                <div class="input-group">
+                  <div class="input-group mb-2">
+                    <input
+                      type="file"
+                      class="form-control"
+                      id="inputGroupFile02"
+                    />
+                  </div>
+                  <div class="">Choose a clear product photo (JPG / PNG).</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 pt-2 mt-3">
+              <button
+                onclick="created()"
+                type="button"
+                class="button-add rounded-2 py-2 px-4 border-0 text-white"
+              >
+                <i
+                  class="fa-solid fa-plus fa-2xs"
+                  style="color: rgb(255, 255, 255)"
+                ></i>
+                Add Product
+              </button>
+              <button
+                onclick="upDateTwo()"
+                type="button"
+                class="button-up text-white border-0 rounded-2 py-2 px-4"
+              >
+                <i
+                  class="fa-regular fa-circle-check"
+                  style="color: rgb(255, 255, 255)"
+                ></i>
+                Update
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section-three -->
+      <section class="mb-4">
+        <div class="container-navbar">
+          <div class="d-flex justify-content-between align-items-center gap-3">
+            <div class="fs-4 fw-bold">
+              <span
+                ><i
+                  class="fa-solid fa-table-cells"
+                  style="color: rgb(241, 21, 21)"
+                ></i
+                ><span>Products</span></span
+              >
+            </div>
+            <div class="">
+              <div class="input-group rounded-pill" style="max-width: 360px">
+                <span class="input-group-text" id="basic-addon"
+                  ><i class="fa-brands fa-sistrix"></i
+                ></span>
+                <input
+                  oninput="search()"
+                  id="search1"
+                  type="search"
+                  class="form-control rounded-pill"
+                  placeholder="Search by name..."
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- section-four -->
+      <section>
+        <div class="container">
+          <div id="cardData" class="row"></div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js";
+    </script>
+    <script src="./main.js"></script>
+  </body>
+</html>
